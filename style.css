@@ -1,0 +1,63 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    min-height: 100%;
+    position: relative;
+}
+
+/* body container div */
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+    padding: 50px;
+    max-width: 100%
+}
+
+/* header tag */
+header {
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    position:absolute;
+    height: 4rem;
+    width: 100%;
+    background-color: whitesmoke;
+    text-align: center;
+    line-height: 3;
+    font-size: 20px;
+}
+/* the main calculator body container */
+.calculator {
+    display: grid;
+    position: relative;
+    border-width: 20px;
+    margin: 60px 10px 50px 10px;
+    border-radius: 15px;
+    background-color: gray;
+    min-width: 450px;
+    min-height: 600px;
+    max-width: 450px;
+    max-height: 600px;
+    outline: 2px solid black;
+}
+/* footer tag */
+footer {
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin-bottom: 0px;
+    position:absolute;
+    height: 2rem;
+    width: 100%;
+    background-color: whitesmoke;
+    text-align: center;
+    line-height: 2;
+    font-size: 20px;
+}

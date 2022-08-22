@@ -1,19 +1,39 @@
 function add(addA, addB) {
-    console.log(addA + addB)
-}
-add(2, 2);
+    return addA + addB
+};
+
 
 function subtract(subA, subB) {
-    console.log(subA - subB)
-}
-subtract(10, 4);
+    return subA - subB
+};
+
 
 function multiply(mulA, mulB) {
-    console.log(mulA * mulB)
-}
-multiply(4, 4);
+    return mulA * mulB
+};
+
 
 function divide(divA, divB) {
-    console.log(divA / divB)
-}
-divide(10, 2)
+    return divA / divB
+};
+
+
+function operate(operator, num1, num2) {
+    num1 = 4;
+    num2 = 4;
+    operator = multiply(num1, num2);
+    console.log(operator);
+
+    switch(operator) {
+        case "+":
+            return add(num1, num2);
+        case "-":
+            return subtract(num1, num2);
+        case "*":
+            return multiply(num1, num2);
+        case "/":
+            return divide(num1, num2);
+       };
+       
+};
+operate();
