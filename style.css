@@ -44,9 +44,9 @@ header {
     border-radius: 15px;
     background-color: gray;
     min-width: 450px;
-    min-height: 600px;
+    min-height: 700px;
     max-width: 450px;
-    max-height: 600px;
+    max-height: 700px;
     outline: 2px solid black;
     box-shadow: -1px 3px 1px 1px black;
 }
@@ -73,7 +73,7 @@ header {
     display: grid;
     justify-content: center;
     border-radius: 15px;
-    height: 450px;
+    height: 550px;
     background-color: gray;
 }
 /* buttons styling */
@@ -88,10 +88,14 @@ header {
     width: 100px;
     border-radius: 12px;
 }
+/* styling for eraser and clear button */
+.clear-button {
+    width: 800px;
+}
 /* styling for equals button & press effects */
 #orange {
     background: orange;
-    color: white;
+    color: black;
     border: 1px solid rgb(235, 177, 112);
     box-shadow: -1px 1px rgb(235, 177, 112), -2px 2px rgb(235, 177, 112), -1px 1px rgb(235, 177, 112);
 }
@@ -120,31 +124,38 @@ header {
     border-radius: 12px;
     font-size: 1.50rem;
 }
+/* clear button row */
+.clear-row {
+    display: flex;
+    height: 100px;
+    width: 400px;
+    gap: 10px;
+}
 /* button row-one */
 .row-one {
     display: flex;
-    height: 112.5px;
+    height: 100px;
     width: 400px;
     gap: 10px;
 }
 /* button row-two */
 .row-two {
     display: flex;
-    height: 112.5px;
+    height: 100px;
     width: 400px;
     gap: 10px;
 }
 /* button row-three */
 .row-three {
     display: flex;
-    height: 112.5px;
+    height: 100px;
     width: 400px;
     gap: 10px;
 }
 /* button row-four */
 .row-four {
     display: flex;
-    height: 112.5px;
+    height: 100px;
     width: 404px;
     gap: 10px;
 }
