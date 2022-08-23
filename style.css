@@ -46,6 +46,7 @@ header {
     max-width: 450px;
     max-height: 600px;
     outline: 2px solid black;
+    box-shadow: -1px 3px 1px 1px black;
 }
 /* screen container */
 .screen-container {
@@ -62,7 +63,8 @@ header {
     height: 6rem;
     width: 90%;
     background-color: rgb(198, 214, 183);
-    
+    outline: 1px solid lightgray;
+    box-shadow: -1px 1px 1px 1px lightgray;
 }
 /* buttons-container */
 .buttons-container {
