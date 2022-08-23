@@ -50,10 +50,11 @@ header {
 /* screen container */
 .screen-container {
     display: flex;
+    border-radius: 15px;
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 8rem;
+    height: 150px;
 }
 /* calculator screen */
 .screen {
@@ -61,8 +62,71 @@ header {
     height: 6rem;
     width: 90%;
     background-color: rgb(198, 214, 183);
-    box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0), 0 0 0 1px rgb(0, 0, 0), 
-    0.3em 0.3em 1em rgba(0, 0, 0, 0);
+    
+}
+/* buttons-container */
+.buttons-container {
+    display: grid;
+    justify-content: center;
+    border-radius: 15px;
+    height: 450px;
+    background-color: gray;
+}
+/* buttons styling */
+.push {
+    background: rgb(243, 241, 242);
+    box-shadow: -1px 1px lightgray, -2px 2px lightgray, -1px 1px lightgray;
+    border: 1px solid lightgrey;
+    padding: 4px;
+    cursor: pointer;
+    outline-offset: 4px;
+    height: 90px;
+    width: 100px;
+    border-radius: 12px;
+}
+/* button press effect */
+.push:hover {
+    background-color: rgb(243, 241, 242);
+}
+.push:active {
+    background-color: rgb(243, 241, 242);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+/* button text */
+.button-text {
+    display: block;
+    padding: 12px 35px;
+    border-radius: 12px;
+    font-size: 1.50rem;
+}
+/* button row-one */
+.row-one {
+    display: flex;
+    height: 112.5px;
+    width: 400px;
+    gap: 10px;
+}
+/* button row-two */
+.row-two {
+    display: flex;
+    height: 112.5px;
+    width: 400px;
+    gap: 10px;
+}
+/* button row-three */
+.row-three {
+    display: flex;
+    height: 112.5px;
+    width: 400px;
+    gap: 10px;
+}
+/* button row-four */
+.row-four {
+    display: flex;
+    height: 112.5px;
+    width: 400px;
+    gap: 10px;
 }
 /* footer tag */
 footer {
