@@ -7,6 +7,9 @@
 html {
     min-height: 100%;
     position: relative;
+    box-sizing: border-box;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 /* body container div */
@@ -16,7 +19,6 @@ html {
     justify-content: center;
     min-height: 100vh;
     box-sizing: border-box;
-    padding: 50px;
     max-width: 100%
 }
 
@@ -26,9 +28,9 @@ header {
     right: 0px;
     top: 0px;
     position:absolute;
-    height: 4rem;
+    height: 5rem;
     width: 100%;
-    background-color: whitesmoke;
+    background-color: white;
     text-align: center;
     line-height: 3;
     font-size: 20px;
@@ -130,16 +132,22 @@ header {
     width: 400px;
     gap: 10px;
 }
+/* gitHub logo */
+.footer-logo {
+    line-height: 2;
+    position: absolute;
+    margin-left: 10px;
+}
 /* footer tag */
 footer {
     left: 0px;
     right: 0px;
     bottom: 0px;
-    margin-bottom: 0px;
+    margin-bottom: 5px;
     position:absolute;
     height: 2rem;
     width: 100%;
-    background-color: whitesmoke;
+    background-color: white;
     text-align: center;
     line-height: 2;
     font-size: 20px;
