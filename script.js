@@ -1,5 +1,5 @@
 // global screen value
-let screenValue = 0;
+let screenValueTotal = 0;
 
 // functions for basic math operators
 function add(addA, addB) {
@@ -21,13 +21,18 @@ function divide(divA, divB) {
     return divA / divB
 };
 
-// function that receives the value of the buttons
-function buttonValue(input) {
-    const calcScreen = document.querySelector('.numbers-container');
-    let calcNumber = input;
-    calcScreen.append(calcNumber)
-}
+// function to receive number value and print to calculator screen
+function printNumber(input) {
+    let display = document.querySelector('.numbers-container');
 
+    if (display.textContent === '0'){
+       display.textContent = ''
+    }
+   
+    let calcNumber = input;
+    display.append(calcNumber);
+
+}
 
 
 

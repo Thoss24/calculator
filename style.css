@@ -70,6 +70,7 @@ header {
     background-color: rgb(198, 214, 183);
     outline: 1px solid lightgray;
     box-shadow: -1px 1px 1px 1px lightgray;
+    
 }
 /* numbers container on screen */
 .numbers-container {
