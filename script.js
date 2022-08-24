@@ -1,3 +1,7 @@
+// global screen value
+let screenValue = 0;
+
+// functions for basic math operators
 function add(addA, addB) {
     return addA + addB
 };
@@ -16,6 +20,15 @@ function multiply(mulA, mulB) {
 function divide(divA, divB) {
     return divA / divB
 };
+
+// function that receives the value of the buttons
+function buttonValue(input) {
+    const calcScreen = document.querySelector('.numbers-container');
+    let calcNumber = input;
+    calcScreen.append(calcNumber)
+}
+
+
 
 
 function operate(operator, num1, num2) {

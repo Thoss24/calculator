@@ -61,12 +61,26 @@ header {
 }
 /* calculator screen */
 .screen {
+    display: block;
+    align-items: center;
+    justify-content: flex-end;
     border-radius: 15px;
     height: 6rem;
     width: 90%;
     background-color: rgb(198, 214, 183);
     outline: 1px solid lightgray;
     box-shadow: -1px 1px 1px 1px lightgray;
+}
+/* numbers container on screen */
+.numbers-container {
+    display: block;
+    text-align: right;
+    align-self: center;
+    padding: 0.5rem 0.5rem;
+    margin-right: 10px;
+    font-size: 75px;
+    height: 80px;
+    width: 96%;
 }
 /* buttons-container */
 .buttons-container {
