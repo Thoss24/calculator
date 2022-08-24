@@ -32,7 +32,9 @@ function printNumber(input) {
     let calcNumber = input;
     display.append(calcNumber);
 
+    
 }
+
 
 
 
