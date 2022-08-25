@@ -1,5 +1,5 @@
 // global screen value
-let screenValueTotal = 0;
+let displayValue = 0;
 
 // functions for basic math operators
 function add(addA, addB) {
@@ -31,17 +31,23 @@ function printNumber(input) {
 
     if (display.textContent.length > 9){
         input = '';
-    }
+    };
 
     let calcNumber = input;
+    displayValue += calcNumber;
     display.append(calcNumber);
-
-    
 }
 
+// clear all numbers from screen function and reset display value
+function clearScreen() {
+    let display = document.querySelector('.numbers-container');
+    
+    display.textContent = '0';
+    displayValue = 0;
+}
+clearScreen()
 
-
-
+// operator function
 function operate(operator, num1, num2) {
     num1 = 4;
     num2 = 4;
