@@ -77,8 +77,8 @@ header {
     display: block;
     text-align: right;
     align-self: center;
-    padding: 0.5rem 1.8rem;
-    font-size: 68px;
+    padding: 0.5rem 2.6rem;
+    font-size: 63px;
     min-height: 90px;
     margin-top: 7px;
     width: 400px;
@@ -107,6 +107,10 @@ header {
 /* styling for eraser and clear button */
 .clear-button {
     width: 800px;
+}
+/* clear single number button */
+.clear {
+
 }
 /* styling for equals button & press effects */
 #orange {
