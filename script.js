@@ -8,6 +8,9 @@ let display = document.querySelector('.numbers-container');
 const clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', removeLast);
 
+// keyboard support for calculator
+window.addEventListener('keydown', keyboardSupport)
+
 // functions for basic math operators
 function add(addA, addB) {
     return addA + addB
@@ -41,7 +44,13 @@ function printNumber(input) {
     display.append(calcNumber);
     
 }
-printNumber()
+
+// keyboard support function. value of press.key (key pressed by user) is passed into printNumber function. keyboardSupport is then called in keydown event.
+function keyboardSupport(press) {
+    if (press.key >= 0 && press.key < 10) printNumber(press.key)
+   
+}
+keyboardSupport()
 
 // remove last number entered
 function removeLast() {
