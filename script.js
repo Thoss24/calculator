@@ -1,21 +1,25 @@
 // global screen value
 let displayValue = 0;
 
+// global variable with value of calculator screen where numbers appear
+let display = document.querySelector('.numbers-container');
+
+// click event to remove last entered number on calculator screen
+const clearButton = document.querySelector('.clear');
+clearButton.addEventListener('click', removeLast);
+
 // functions for basic math operators
 function add(addA, addB) {
     return addA + addB
 };
 
-
 function subtract(subA, subB) {
     return subA - subB
 };
 
-
 function multiply(mulA, mulB) {
     return mulA * mulB
 };
-
 
 function divide(divA, divB) {
     return divA / divB
@@ -23,7 +27,6 @@ function divide(divA, divB) {
 
 // function to receive number value and print to calculator screen
 function printNumber(input) {
-    let display = document.querySelector('.numbers-container');
 
     if (display.textContent === '0'){
        display.textContent = input[-1]
@@ -36,16 +39,23 @@ function printNumber(input) {
     let calcNumber = input;
     displayValue += calcNumber;
     display.append(calcNumber);
+    
 }
+printNumber()
 
-// clear all numbers from screen function and reset display value
+// remove last number entered
+function removeLast() {
+    display.textContent = display.textContent.slice(0, -1);
+    
+}
+removeLast()
+
+// clear all numbers from screen and reset display value function
 function clearScreen() {
-    let display = document.querySelector('.numbers-container');
     
     display.textContent = '0';
     displayValue = 0;
 }
-clearScreen()
 
 // operator function
 function operate(operator, num1, num2) {
