@@ -26,9 +26,13 @@ function printNumber(input) {
     let display = document.querySelector('.numbers-container');
 
     if (display.textContent === '0'){
-       display.textContent = ''
+       display.textContent = input[-1]
+    };
+
+    if (display.textContent.length > 9){
+        input = '';
     }
-   
+
     let calcNumber = input;
     display.append(calcNumber);
 
