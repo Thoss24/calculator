@@ -1,8 +1,8 @@
 // global screen value
-let displayValue = 0;
-let currentNumber = 0;
-let nextNumber = 8;
-let total = 0;
+let displayValue = '0';
+let firstNumber = null;
+let waitingForSecondNumber = false;
+let operator = null
 
 // global variable with value of calculator screen where numbers appear
 let display = document.querySelector('.numbers-container');
@@ -36,27 +36,6 @@ function multiply(a, b) {
 function divide(a, b) {
     return a / b
 };
-
-// function to receive number value and print to calculator screen
-function printNumber(input) {
-
-    if (display.textContent === '0'){
-       display.textContent = input[-1]
-    };
-
-    if (display.textContent.length > 9){
-        input = '';
-    };
-
-    let calcNumber = input;
-    
-    displayValue += calcNumber
-
-    display.append(calcNumber); 
-
-    console.log(displayValue)
-}
-
 
 // keyboard support function. value of press.key (key pressed by user) is passed into printNumber function. keyboardSupport is then called in keydown event. key = identifier of key pressed.
 function keyboardSupport(press) {
@@ -95,8 +74,6 @@ function inputDecimal(dot) {
 
 // operator function
 function operate(operator, a, b) {
-    a = currentNumber
-    b = nextNumber
     
     switch(operator) {
         case "+":
@@ -111,5 +88,42 @@ function operate(operator, a, b) {
 };
 operate();
 
+function handleOperator(nextOperator) {
+    const inputVal = parseFloat(displayValue);
 
+    if (firstNumber === null && !isNaN(inputVal)) {
+        firstNumber = inputVal;
+    }
+    waitingForSecondNumber = true;
+    operator = nextOperator;
+
+   
+}
+handleOperator()
+
+// function to receive number value and print to calculator screen
+function printNumber(input) {
+
+    if (display.textContent === '0'){
+       display.textContent = input[-1]
+    };
+
+    if (display.textContent.length > 9){
+        input = '';
+    };
+
+    let calcNumber = input;
+    
+    displayValue += calcNumber
+
+    display.append(calcNumber); 
+
+    if (waitingForSecondNumber === true) {   // if waiting for second number is set to true
+        displayValue = input;                // displayValue is overwritten by the digit that was input by user
+        display.textContent = input;         // and the display textContent will also be overwritten
+        waitingForSecondNumber = false       // and waiting for second number will be reset back to false.
+    }                                        // When the user presses an operator waitingForSecondNumber will be set to true and the display will be reset awaiting new input.
+     
+    console.log(displayValue)
+}
 
