@@ -72,35 +72,6 @@ function inputDecimal(dot) {
     };
 }
 
-// operator function
-function operate(operator, a, b) {
-    
-    switch(operator) {
-        case "+":
-            return add(a, b);
-        case "-":
-            return subtract(a, b);
-        case "*":
-            return multiply(a, b);
-        case "/":
-            return divide(a, b);
-       };
-};
-operate();
-
-function handleOperator(nextOperator) {
-    const inputVal = parseFloat(displayValue);
-
-    if (firstNumber === null && !isNaN(inputVal)) {
-        firstNumber = inputVal;
-    }
-    waitingForSecondNumber = true;
-    operator = nextOperator;
-
-   
-}
-handleOperator()
-
 // function to receive number value and print to calculator screen
 function printNumber(input) {
 
@@ -126,4 +97,45 @@ function printNumber(input) {
      
     console.log(displayValue)
 }
+
+function handleOperator(nextOperator) {
+    const inputVal = parseFloat(displayValue);
+
+    if (firstNumber === null && !isNaN(inputVal)) {
+        firstNumber = inputVal;
+    } else if (operator) {
+        const result = operate(firstNumber, inputVal, operator);
+
+        displayValue = String(result);
+        display.textContent = String(result);
+        firstNumber = result
+    }
+
+    waitingForSecondNumber = true;
+    operator = nextOperator;
+
+   
+}
+handleOperator()
+
+// operator function
+function operate(firstNum, secondNum, operator) {
+    
+    switch(operator) {
+        case "+":
+            return add(firstNum, secondNum);
+        case "-":
+            return subtract(firstNum, secondNum);
+        case "*":
+            return multiply(firstNum, secondNum);
+        case "/":
+            return divide(firstNum, secondNum);
+       };
+
+       return secondNum
+};
+operate();
+
+
+
 
