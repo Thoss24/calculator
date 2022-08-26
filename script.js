@@ -1,6 +1,6 @@
 // global screen value
 let displayValue = 0;
-let currentNumber = 2;
+let currentNumber = 0;
 let nextNumber = 8;
 let total = 0;
 
@@ -20,23 +20,21 @@ addition.addEventListener('click', add);
 
 
 // functions for basic math operators
-function add(addA, addB, tot) {
-    tot = addA + addB;
-    console.log(tot)
-   
+function add(a, b) {
+   return a + b
 };
-add(currentNumber, nextNumber, total)
+add()
 
-function subtract(subA, subB) {
-    return subA - subB
+function subtract(a, b) {
+    return a - b
 };
 
-function multiply(mulA, mulB) {
-    return mulA * mulB
+function multiply(a, b) {
+    return a * b
 };
 
-function divide(divA, divB) {
-    return divA / divB
+function divide(a, b) {
+    return a / b
 };
 
 // function to receive number value and print to calculator screen
@@ -51,42 +49,64 @@ function printNumber(input) {
     };
 
     let calcNumber = input;
-    displayValue += calcNumber;
+    
+    displayValue += calcNumber
+
     display.append(calcNumber); 
+
+    console.log(displayValue)
 }
+
 
 // keyboard support function. value of press.key (key pressed by user) is passed into printNumber function. keyboardSupport is then called in keydown event. key = identifier of key pressed.
 function keyboardSupport(press) {
     if (press.key >= 0 && press.key < 10) printNumber(press.key)
 }
-//keyboardSupport()
+// keyboardSupport()
 
 // remove last number entered
 function removeLast() {
     display.textContent = display.textContent.slice(0, -1);
+    displayValue = display.textContent
 }
 removeLast()
 
 // clear all numbers from screen and reset display value function
 function clearScreen() {
     display.textContent = '0';
-    displayValue = 0;
+    displayValue = '0';
+}
+
+function updateDisplay() {
+  console.log(displayValue)
+}
+updateDisplay()
+
+function myValue(input) {
+    console.log(input)
+}
+
+function inputDecimal(dot) {
+    if (!displayValue.includes(dot)) {
+        displayValue += dot
+        display.textContent += dot
+    };
 }
 
 // operator function
-function operate(operator, num1, num2) {
-    num1 = currentNumber;
-    num2 = nextNumber;
+function operate(operator, a, b) {
+    a = currentNumber
+    b = nextNumber
     
     switch(operator) {
         case "+":
-            return add(num1, num2);
+            return add(a, b);
         case "-":
-            return subtract(num1, num2);
+            return subtract(a, b);
         case "*":
-            return multiply(num1, num2);
+            return multiply(a, b);
         case "/":
-            return divide(num1, num2);
+            return divide(a, b);
        };
 };
 operate();
