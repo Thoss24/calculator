@@ -56,15 +56,6 @@ function clearScreen() {
     displayValue = '0';
 }
 
-function updateDisplay() {
-  console.log(displayValue)
-}
-updateDisplay()
-
-function myValue(input) {
-    console.log(input)
-}
-
 function inputDecimal(dot) {
     if (!displayValue.includes(dot)) {
         displayValue += dot
@@ -98,30 +89,28 @@ function printNumber(input) {
     console.log(displayValue)
 }
 
+// 
 function handleOperator(nextOperator) {
-    const inputVal = parseFloat(displayValue);
+    const inputVal = parseFloat(displayValue);                   // parseFloat converts string content of displayValue to a number.
 
-    if (firstNumber === null && !isNaN(inputVal)) {
-        firstNumber = inputVal;
+    if (firstNumber === null && !isNaN(inputVal)) {              // check that the firstNumber is equal to null and is not a NaN value.
+        firstNumber = inputVal;                                  // if previous condition is true then update firstNumber to equal inputVal (current display value).
     } else if (operator) {
-        const result = operate(firstNumber, inputVal, operator);
-
-        displayValue = String(result);
-        display.textContent = String(result);
-        firstNumber = result
-    }
-
-    waitingForSecondNumber = true;
-    operator = nextOperator;
-
-   
+        const result = operate(firstNumber, inputVal, operator); // check if operator has been assigned an operator. If true operate() function is invoked calculating firstNumber with secondNumber (inputVal) using operator input by user.
+                                                                 
+        displayValue = String(result);                           // the result of the operate() function calculation is then passed to the display value, screen text content and the firstNumber variable
+        display.textContent = String(result);                    // allowing the user to see the result of the calculation, whilst also enabling the result to be used in the next calculation.
+        firstNumber = result                                     // for example; 5 + 5 = 10, 10 is assigned to displayValue, screen content & firstNumber. This value can then be used, for example; 10 + 5 = 15.
+    }                                                            // this allows the user to chain calculations together without having to clear all after a single operator is used.
+    
+    waitingForSecondNumber = true;                               // operator is then set to nextOperator which is equal to whatever operator the user pressed
+    operator = nextOperator;                                     // while waitingForSecondNumber is set to true. meaning that firstNumber has been entered and whatever numbers the user inputs next will make up the second number.
 }
 handleOperator()
 
-// operator function
-function operate(firstNum, secondNum, operator) {
-    
-    switch(operator) {
+// operate function with switch statement
+function operate(firstNum, secondNum, operator) {               // the switch statement allows for the operators in the statement to be compared with the operator passed in by user 
+    switch(operator) {                                          // and for that operator to be used with the values represented by firstNum (firstNUmber) and secondNum (inputVal).
         case "+":
             return add(firstNum, secondNum);
         case "-":
