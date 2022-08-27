@@ -65,11 +65,11 @@ function inputDecimal(dot) {
     };
 }
 
-// // rounding long decimals
-function roundingDecimals() {
-   Math.round(display.textContent * 1000) / 1000;
+// // // rounding long decimals
+// function roundingDecimals() {
+//    Math.round(display.textContent * 1000) / 1000;
     
-}
+// }
 
 
 // function to receive number value and print to calculator screen
