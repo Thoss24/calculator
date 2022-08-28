@@ -7,6 +7,7 @@ let operator = null
 // global variable with value of calculator screen where numbers appear
 let display = document.querySelector('.numbers-container');
 
+
 // click event to remove last entered number on calculator screen
 const clearButton = document.querySelector('.clear');
 clearButton.addEventListener('click', removeLast);
@@ -34,20 +35,21 @@ function divide(a, b) {
 
 // keyboard support function. value of press.key (key pressed by user) is passed into printNumber function. keyboardSupport is then called in keydown event. key = identifier of key pressed.
 function keyboardSupport(press) {
-    if (press.key >= 0 && press.key < 10) printNumber(press.key)
+    if (press.key >= 0 && press.key < 9) printNumber(press.key)
     
 }
 keyboardSupport()
 
 // remove last number entered
 function removeLast() {
+    if (display.textContent.length >= 1) {
     display.textContent = display.textContent.slice(0, -1);
-    displayValue = display.textContent
+    displayValue = display.textContent };
 
     if (operator && waitingForSecondNumber) {
         displayValue = '0';
         display.textContent = '0';
-    }
+    };
 }
 removeLast()
 
@@ -65,13 +67,6 @@ function inputDecimal(dot) {
     };
 }
 
-// // // rounding long decimals
-// function roundingDecimals() {
-//    Math.round(display.textContent * 1000) / 1000;
-    
-// }
-
-
 // function to receive number value and print to calculator screen
 function printNumber(input) {
 
@@ -82,7 +77,6 @@ function printNumber(input) {
     if (display.textContent.length > 9){
         input = '';
     };
-
 
     let calcNumber = input;
     
@@ -108,17 +102,21 @@ function handleOperator(nextOperator) {
         return
     }
 
-
     if (firstNumber === null && !isNaN(inputVal)) {              // check that the firstNumber is equal to null and is not a NaN value (basically checking that firstNumber is empty and inputVal (displayValue) is a number)
         firstNumber = inputVal;                                  // if previous condition is true then update firstNumber to equal inputVal (current display value).
     } else if (operator) {
         const result = operate(firstNumber, inputVal, operator); // check if operator has been assigned an operator. If true operate() function is invoked calculating firstNumber with secondNumber (inputVal) using operator input by user.
-                                                                 
+                                                                
         displayValue = String(result);                           // the result of the operate() function calculation is then passed to the display value, screen text content and the firstNumber variable
         display.textContent = String(result);                    // allowing the user to see the result of the calculation, whilst also enabling the result to be used in the next calculation.
         firstNumber = result                                     // for example; 5 + 5 = 10, 10 is assigned to displayValue, screen content & firstNumber. This value can then be used, for example; firstNumber = 10: + inputVal 5 = 15.
-    }                                                            // this allows the user to chain calculations together without having to clear all after a single operator is used.
-    
+    };                                                           // this allows the user to chain calculations together without having to clear all after a single operator is used.
+   
+    function roundingDecimals(num) {
+        display.textContent = Math.round(num * 1000) / 1000;
+    }
+    roundingDecimals(firstNumber);
+
     console.log(firstNumber)
     waitingForSecondNumber = true;                               // operator is then set to nextOperator which equals whatever operator the user will press next, not the operator which was pressed before. operator = 1st nextOperator = 2nd
     operator = nextOperator;                                     // while waitingForSecondNumber is set to true. meaning that firstNumber has been entered and whatever numbers the user inputs next, following the operator, will make up the new displayValue (inputVal)
@@ -141,7 +139,6 @@ function operate(firstNum, secondNum, operator) {               // the switch st
        return secondNum
 };
 operate();
-
 
 
 
