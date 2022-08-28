@@ -35,8 +35,15 @@ function divide(a, b) {
 
 // keyboard support function. value of press.key (key pressed by user) is passed into printNumber function. keyboardSupport is then called in keydown event. key = identifier of key pressed.
 function keyboardSupport(press) {
-    if (press.key >= 0 && press.key < 9) printNumber(press.key)
-    
+    if (press.key >= 0 && press.key < 9) printNumber(press.key);
+    if (press.key === '/') handleOperator(press.key);
+    if (press.key === '+') handleOperator(press.key);
+    if (press.key === '-') handleOperator(press.key);
+    if (press.key === '*') handleOperator(press.key);
+    if (press.key === '=') handleOperator(press.key);
+    if (press.key === '.') inputDecimal(press.key);
+    if (press.key === 'Backspace') removeLast(press.key);
+    if (press.key === 'Escape') clearScreen(press.key);
 }
 keyboardSupport()
 
