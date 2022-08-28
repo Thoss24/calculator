@@ -102,6 +102,10 @@ function handleOperator(nextOperator) {
         return
     }
 
+    if (operator === '/' && displayValue === '0'){
+        alert('One does not simply divide by 0 ....')
+    };
+
     if (firstNumber === null && !isNaN(inputVal)) {              // check that the firstNumber is equal to null and is not a NaN value (basically checking that firstNumber is empty and inputVal (displayValue) is a number)
         firstNumber = inputVal;                                  // if previous condition is true then update firstNumber to equal inputVal (current display value).
     } else if (operator) {
@@ -111,7 +115,7 @@ function handleOperator(nextOperator) {
         display.textContent = String(result);                    // allowing the user to see the result of the calculation, whilst also enabling the result to be used in the next calculation.
         firstNumber = result                                     // for example; 5 + 5 = 10, 10 is assigned to displayValue, screen content & firstNumber. This value can then be used, for example; firstNumber = 10: + inputVal 5 = 15.
     };                                                           // this allows the user to chain calculations together without having to clear all after a single operator is used.
-   
+
     function roundingDecimals(num) {
         display.textContent = Math.round(num * 1000) / 1000;
     }
@@ -139,6 +143,4 @@ function operate(firstNum, secondNum, operator) {               // the switch st
        return secondNum
 };
 operate();
-
-
 
