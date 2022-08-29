@@ -86,6 +86,7 @@ header {
     width: 300px;
     word-wrap: break-word;
     font-family: monospace;
+    border-radius: 15px;
 }
 /* buttons-container */
 .buttons-container {
