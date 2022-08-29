@@ -64,6 +64,9 @@ removeLast()
 function clearScreen() {
     display.textContent = '0';
     displayValue = '0';
+    firstNumber = null;
+    waitingForSecondNumber = false;
+    operator = null
 }
 
 // appends a decimal to screen, only allowing one decimal on the screen at a time
